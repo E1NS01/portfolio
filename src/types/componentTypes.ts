@@ -3,4 +3,5 @@ export interface Experience {
   position: string
   date: string
   description: string
+  url?: string
 }

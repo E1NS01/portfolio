@@ -11,9 +11,9 @@ export async function sendEmail(data: EmailData) {
   const { requestId } = await courier.send({
     message: {
       to: {
-        email: 'jl_fischer@icloud.com',
+        email: import.meta.env.VITE_COURIER_EMAIL,
       },
-      template: 'ZGD3S4WAAGMDAFNHRJJ2CFD64BXN',
+      template: import.meta.env.VITE_COURIER_TEMPLATE_ID,
       data,
     },
   })
