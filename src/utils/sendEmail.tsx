@@ -1,17 +1,13 @@
+import { EmailData } from '@/types/apiTypes'
 import { CourierClient } from '@trycourier/courier'
-import dotenv from 'dotenv'
 
-dotenv.config()
+const authorizationToken = import.meta.env.VITE_COURIER_TOKEN
 
 const courier = new CourierClient({
-  authorizationToken: process.env.REACT_APP_COURIER_TOKEN,
+  authorizationToken,
 })
 
-export async function sendEmail(data: {
-  name: string
-  email: string
-  message: string
-}) {
+export async function sendEmail(data: EmailData) {
   const { requestId } = await courier.send({
     message: {
       to: {
